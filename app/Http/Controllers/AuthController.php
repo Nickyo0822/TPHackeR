@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -26,8 +28,8 @@ class AuthController extends Controller
     {
         $credentials = request(['email', 'password']);
 
-        if (! $token = Auth::attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+        if (!$token = Auth::attempt($credentials)) {
+            return response()->json(['error' => 'Pas le bon mot de passe'], 401);
         }
 
         return $this->respondWithToken($token);
@@ -52,7 +54,7 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json(['message' => 'Déconnexion réussie']);
     }
 
     /**
@@ -79,5 +81,25 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => Auth::factory()->getTTL() * 60
         ]);
+    }
+
+    public function register() {
+        $validator = Validator::make(request()->all(), [
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+        ]);
+
+        if ($validator->fails()){
+            return response()->json($validator->errors()->toJson(), 400);
+        }
+
+        $user = new User();
+        $user->name = request()->name;
+        $user->email = request()->email;
+        $user->password = bcrypt(request()->password);
+        $user->save();
+
+        return response()->json($user, 201);
     }
 }

@@ -1,4 +1,20 @@
-### Login
+### S'enregistrer
+1. Créer une requête **POST**.
+2. Renseigner l'adresse suivante : "**http://127.0.0.1:8000/api/auth/register**"
+3. Dans le **Headers**, mettre les **Key / Value** suivantes :
+   - Accept | application/json
+   - Content-Type | application/json
+4. Dans **Body** en **raw**, sélectionner **JSON** puis renseigner le json suivant :
+```
+{
+    "email": "MonMail@example.com",
+    "name": "MonNom",
+    "password": "MonMotDePasse"
+}
+```
+5. Appuyer sur **Send**.
+
+### Se connecter
 
 Sur Postman, suivre les étapes suivantes :
 
@@ -7,7 +23,7 @@ Sur Postman, suivre les étapes suivantes :
 3. Dans le **Headers**, mettre les **Key / Value** suivantes :
    - Accept | application/json
    - Content-Type | application/json
-4. Dans body en raw json, renseigner le json suivant :
+4. Dans **Body** en **raw**, sélectionner **JSON** puis renseigner le json suivant :
 ```
 {
     "email": "test@example.com",
