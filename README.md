@@ -36,3 +36,5 @@ Sur Postman, suivre les étapes suivantes :
    - Accept | application/json
    - Content-Type | application/json
    - Authorization | Bearer ***Coller l'access_token ici***
+
+Si tout est bon, cela affichera les informations de l'utilisateur.
