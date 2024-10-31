@@ -119,14 +119,69 @@
                 "tags": [
                     "users"
                 ],
-                "summary": "Post informations about current user",
+                "summary": "Récupérer les informations de l'utilisateur connecté",
+                "description": "Cette fonction retourne les informations de l'utilisateur actuellement authentifié.",
                 "operationId": "d80381cd6c0b37d694845cb9058dbe5e",
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
+                        "description": "Informations de l'utilisateur retournées avec succès",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "TestUser"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "format": "email",
+                                            "example": "test@example.com"
+                                        },
+                                        "email_verified_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2024-10-31T12:27:44.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2024-10-31T12:27:45.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2024-10-31T12:27:45.000000Z"
+                                        },
+                                        "profiles_id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
-                    "400": {
-                        "description": "Invalid request"
+                    "401": {
+                        "description": "Utilisateur non authentifié",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Utilisateur non authentifié"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
