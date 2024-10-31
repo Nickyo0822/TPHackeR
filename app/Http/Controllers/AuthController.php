@@ -110,10 +110,29 @@ class AuthController extends Controller
     /**
      * @OA\Post(
      *     path="/auth/me",
-     *     summary="Post informations about current user",
+     *     summary="Récupérer les informations de l'utilisateur connecté",
+     *     description="Cette fonction retourne les informations de l'utilisateur actuellement authentifié.",
      *     tags={"users"},
-     *     @OA\Response(response=200, description="Successful operation"),
-     *     @OA\Response(response=400, description="Invalid request")
+     *     @OA\Response(
+     *         response=200,
+     *         description="Informations de l'utilisateur retournées avec succès",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="id", type="integer", example=1),
+     *             @OA\Property(property="name", type="string", example="TestUser"),
+     *             @OA\Property(property="email", type="string", format="email", example="test@example.com"),
+     *             @OA\Property(property="email_verified_at", type="string", format="date-time", example="2024-10-31T12:27:44.000000Z"),
+     *             @OA\Property(property="created_at", type="string", format="date-time", example="2024-10-31T12:27:45.000000Z"),
+     *             @OA\Property(property="updated_at", type="string", format="date-time", example="2024-10-31T12:27:45.000000Z"),
+     *             @OA\Property(property="profiles_id", type="integer", example=1)
+     *         ),
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Utilisateur non authentifié",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="error", type="string", example="Utilisateur non authentifié")
+     *         )
+     *     ),
      * )
      */
     public function me()
