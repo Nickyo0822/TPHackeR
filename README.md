@@ -1,3 +1,8 @@
+## Via le service Web :
+1. Accès à swagger via [ce lien](http://185.98.138.56/api/documentation)
+
+## Via POSTMAN :
+
 ### Pré-requis
 1. Se connecter sur Postman
 
