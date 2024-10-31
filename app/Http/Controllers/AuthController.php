@@ -22,7 +22,7 @@ class AuthController extends Controller
      * )
      *
      * @OA\Server(
-     *     url="http://http://185.98.138.56/api",
+     *     url="http://185.98.138.56/api",
      *     description="Serveur local"
      * )
      */
