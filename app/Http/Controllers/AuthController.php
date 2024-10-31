@@ -113,6 +113,17 @@ class AuthController extends Controller
      *     summary="Récupérer les informations de l'utilisateur connecté",
      *     description="Cette fonction retourne les informations de l'utilisateur actuellement authentifié.",
      *     tags={"users"},
+     * @OA\Parameter(
+     *         name="bearerToken",
+     *         in="query",
+     *         description="Token de connexion de l'utilisateur",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string",
+     *             format="bearer",
+     *             example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTg1Ljk4LjEzOC41Ni9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTczMDM4OTU1NSwiZXhwIjoxNzMwMzkzMTU1LCJuYmYiOjE3MzAzODk1NTUsImp0aSI6IjNUYmNnWHIxMjNDaGVpVkQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.do2Iv4GOl28ppLio4W3u1BF30_WoBA5E9nEae7ULwGQ"
+     *         )
+     *     ),
      *     @OA\Response(
      *         response=200,
      *         description="Informations de l'utilisateur retournées avec succès",
