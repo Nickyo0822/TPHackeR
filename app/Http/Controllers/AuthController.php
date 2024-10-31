@@ -13,9 +13,18 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     /**
-     * Create a new AuthController instance.
+     * @OA\OpenApi(
+     *     @OA\Info(
+     *         title="TPHackerR",
+     *         version="0.0.1",
+     *         description="Une API pour s'amuser"
+     *     )
+     * )
      *
-     * @return void
+     * @OA\Server(
+     *     url="http://127.0.0.1:8000/api",
+     *     description="Serveur local"
+     * )
      */
     public function __construct()
     {
@@ -23,12 +32,57 @@ class AuthController extends Controller
     }
 
     /**
-     * @SWG\Get(
-     *     path="/login",
+     * @OA\Post(
+     *     path="/auth/login",
      *     summary="Login user",
+     *     description="Use the login function to connect user",
      *     tags={"users"},
-     *     @SWG\Response(response=200, description="Successful operation"),
-     *     @SWG\Response(response=400, description="Invalid request")
+     * @OA\Parameter(
+     *         name="email",
+     *         in="query",
+     *         description="Adresse email de l'utilisateur",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string",
+     *             format="email",
+     *             example="user@example.com"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="password",
+     *         in="query",
+     *         description="Mot de passe de l'utilisateur",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string",
+     *             format="password",
+     *             example="password123"
+     *         )
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"email", "password"},
+     *             @OA\Property(property="email", type="string", format="email", example="user@example.com"),
+     *             @OA\Property(property="password", type="string", format="password", example="password123")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Connexion réussie, token de l'utilisateur retourné",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="access_token", type="string", example="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."),
+     *             @OA\Property(property="token_type", type="string", example="bearer"),
+     *             @OA\Property(property="expires_in", type="integer", example=3600)
+     *         ),
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Échec de la connexion",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="error", type="string", example="Pas le bon mot de passe")
+     *         )
+     *     ),
      * )
      */
     public function login()
@@ -54,12 +108,12 @@ class AuthController extends Controller
     }
 
     /**
-     * @SWG\Get(
-     *     path="/me",
-     *     summary="Get informations about current user",
+     * @OA\Post(
+     *     path="/auth/me",
+     *     summary="Post informations about current user",
      *     tags={"users"},
-     *     @SWG\Response(response=200, description="Successful operation"),
-     *     @SWG\Response(response=400, description="Invalid request")
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
      * )
      */
     public function me()
@@ -84,12 +138,12 @@ class AuthController extends Controller
     }
 
     /**
-     * @SWG\Get(
-     *     path="/logout",
+     * @OA\Post(
+     *     path="/auth/logout",
      *     summary="Logout user",
      *     tags={"users"},
-     *     @SWG\Response(response=200, description="Successful operation"),
-     *     @SWG\Response(response=400, description="Invalid request")
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
      * )
      */
     public function logout()
@@ -106,12 +160,12 @@ class AuthController extends Controller
     }
 
     /**
-     * @SWG\Get(
-     *     path="/refresh",
+     * @OA\Post(
+     *     path="/auth/refresh",
      *     summary="Refresh current token user",
      *     tags={"users"},
-     *     @SWG\Response(response=200, description="Successful operation"),
-     *     @SWG\Response(response=400, description="Invalid request")
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
      * )
      */
     public function refresh()
@@ -126,7 +180,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Get the token array structure.
+     * Post the token array structure.
      *
      * @param  string $token
      *
@@ -137,17 +191,17 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => Auth::factory()->getTTL() * 60
+            'expires_in' => (Auth::factory()->getTTL() ?: config('jwt.ttl')) * 60
         ]);
     }
 
     /**
-     * @SWG\Get(
-     *     path="/register",
+     * @OA\Post(
+     *     path="/auth/register",
      *     summary="Register an user",
      *     tags={"users"},
-     *     @SWG\Response(response=200, description="Successful operation"),
-     *     @SWG\Response(response=400, description="Invalid request")
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
      * )
      */
     public function register() 
