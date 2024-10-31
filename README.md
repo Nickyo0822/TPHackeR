@@ -3,7 +3,7 @@
 
 ### S'enregistrer
 1. Créer une requête **POST**.
-2. Renseigner l'adresse suivante : "**http://127.0.0.1:8000/api/auth/register**"
+2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/register**"
 3. Dans le **Headers**, mettre les **Key / Value** suivantes :
    - Accept | application/json
    - Content-Type | application/json
@@ -24,7 +24,7 @@
 Sur Postman, suivre les étapes suivantes :
 
 1. Créer une requête **POST**.
-2. Renseigner l'adresse suivante : "**http://127.0.0.1:8000/api/auth/login**"
+2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/login**"
 3. Dans le **Headers**, mettre les **Key / Value** suivantes :
    - Accept | application/json
    - Content-Type | application/json
@@ -43,7 +43,7 @@ var jsonData = pm.response.json();
 pm.environment.set("bearerToken", jsonData.access_token);
 ```
 8. Appuyer sur **Send**.
-9.  Pour vérifier que notre **access_token** soit bien fonctionnel, on pourra faire une autre requête **POST** sur l'adresse suivante : "**http://127.0.0.1:8000/api/auth/me**" avec les valeurs suivantes :
+9.  Pour vérifier que notre **access_token** soit bien fonctionnel, on pourra faire une autre requête **POST** sur l'adresse suivante : "**http://185.98.138.56/api/auth/me**" avec les valeurs suivantes :
    - Accept | application/json
    - Content-Type | application/json
    - Dans **Authorization**, sélectionner *Bearer Token* et dans **Token**, renseigner :
@@ -57,7 +57,7 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
 
 1. Changer de profil : 
    1. Se connecter
-   2. Renseigner l'adresse suivante : "**http://127.0.0.1:8000/api/auth/changeprofile**"
+   2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/changeprofile**"
    3. Renseigner le json suivant :
    ```
    {
@@ -67,7 +67,7 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
    *Les différents profils sont : **Super Admin**, **Admin**, **Utilisateur Premium** et **Utilisateur**.
 2. Mettre à jour les droits d'un profil : 
    1. Se connecter
-   2. Renseigner l'adresse suivante : "**http://127.0.0.1:8000/api/auth/changerights**"
+   2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/changerights**"
    3. Renseigner le json suivant :
    ```
    {
