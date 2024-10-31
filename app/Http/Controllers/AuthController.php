@@ -23,9 +23,13 @@ class AuthController extends Controller
     }
 
     /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * @SWG\Get(
+     *     path="/login",
+     *     summary="Login user",
+     *     tags={"users"},
+     *     @SWG\Response(response=200, description="Successful operation"),
+     *     @SWG\Response(response=400, description="Invalid request")
+     * )
      */
     public function login()
     {
@@ -50,9 +54,13 @@ class AuthController extends Controller
     }
 
     /**
-     * Get the authenticated User.
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * @SWG\Get(
+     *     path="/me",
+     *     summary="Get informations about current user",
+     *     tags={"users"},
+     *     @SWG\Response(response=200, description="Successful operation"),
+     *     @SWG\Response(response=400, description="Invalid request")
+     * )
      */
     public function me()
     {
@@ -76,9 +84,13 @@ class AuthController extends Controller
     }
 
     /**
-     * Log the user out (Invalidate the token).
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * @SWG\Get(
+     *     path="/logout",
+     *     summary="Logout user",
+     *     tags={"users"},
+     *     @SWG\Response(response=200, description="Successful operation"),
+     *     @SWG\Response(response=400, description="Invalid request")
+     * )
      */
     public function logout()
     {
@@ -94,9 +106,13 @@ class AuthController extends Controller
     }
 
     /**
-     * Refresh a token.
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * @SWG\Get(
+     *     path="/refresh",
+     *     summary="Refresh current token user",
+     *     tags={"users"},
+     *     @SWG\Response(response=200, description="Successful operation"),
+     *     @SWG\Response(response=400, description="Invalid request")
+     * )
      */
     public function refresh()
     {
@@ -125,6 +141,15 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * @SWG\Get(
+     *     path="/register",
+     *     summary="Register an user",
+     *     tags={"users"},
+     *     @SWG\Response(response=200, description="Successful operation"),
+     *     @SWG\Response(response=400, description="Invalid request")
+     * )
+     */
     public function register() 
     {
         $validator = Validator::make(request()->all(), [

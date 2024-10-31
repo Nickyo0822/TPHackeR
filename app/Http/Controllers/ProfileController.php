@@ -11,6 +11,15 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
+    /**
+     * @SWG\Get(
+     *     path="/changeprofile",
+     *     summary="Change current user profile",
+     *     tags={"profiles"},
+     *     @SWG\Response(response=200, description="Successful operation"),
+     *     @SWG\Response(response=400, description="Invalid request")
+     * )
+     */
     public function changeprofile()
     {
         if (!Auth::id())
@@ -73,6 +82,15 @@ class ProfileController extends Controller
         return response()->json(Auth::user());
     }
 
+    /**
+     * @SWG\Get(
+     *     path="/changerights",
+     *     summary="Change profile's rights",
+     *     tags={"profiles"},
+     *     @SWG\Response(response=200, description="Successful operation"),
+     *     @SWG\Response(response=400, description="Invalid request")
+     * )
+     */
     public function changerights()
     {
         if (!Auth::id())
