@@ -261,6 +261,7 @@ class AuthController extends Controller
         $user->save();
         
         Logs::create([
+            'usedFonction' => 'register',
             'content' => 'Création de l\'utilisateur ' . request()->name,
             'created_at' => now()
         ]);

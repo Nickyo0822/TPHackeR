@@ -109,7 +109,47 @@ class FunctionHackerController extends Controller
         }
         else 
         {
-            return response()->json(['message' => 'Le mot de passe ne fait partie des mots de passe les plus fréquents'], 200);
+            return response()->json(['message' => 'Le mot de passe ne fait pas partie des mots de passe les plus fréquents'], 200);
         }
+    }
+
+    /**
+     * @OA\Post(
+     *     path="auth/get-all-domains",
+     *     summary="Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+     *     description="Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+     *     tags={"password"},
+     * @OA\Parameter(
+     *         name="bearerToken",
+     *         in="query",
+     *         description="Token de connexion de l'utilisateur",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string",
+     *             format="bearer",
+     *             example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTg1Ljk4LjEzOC41Ni9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTczMDM4OTU1NSwiZXhwIjoxNzMwMzkzMTU1LCJuYmYiOjE3MzAzODk1NTUsImp0aSI6IjNUYmNnWHIxMjNDaGVpVkQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.do2Iv4GOl28ppLio4W3u1BF30_WoBA5E9nEae7ULwGQ"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Le mot de passe est utilisé",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="string", type="string", format="string", example="test")
+     *         ),
+     *     )
+     * )
+     */
+    public function getAllDomains()
+    {
+        $client = new \GuzzleHttp\Client();
+
+        $response = $client->request('GET', 'https://api.securitytrails.com/v1/ping', [
+            'headers' => [
+                'accept' => 'application/json',
+            ],
+        ]);
+
+
+        return $response()->json();
     }
 }
