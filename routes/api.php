@@ -25,5 +25,5 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
     Route::post('me', [AuthController::class, 'me']);
 
     // Email
-    Route::post('EmailVerificator', [FunctionHackerController::class, 'EmailVerificator']);
+    Route::post('email-exist', [FunctionHackerController::class, 'EmailVerificator']);
 });
