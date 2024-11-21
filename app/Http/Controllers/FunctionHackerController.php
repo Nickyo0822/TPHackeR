@@ -143,13 +143,14 @@ class FunctionHackerController extends Controller
     {
         $client = new \GuzzleHttp\Client();
 
-        $response = $client->request('GET', 'https://api.securitytrails.com/v1/ping', [
+        $domain = request()->domain;
+
+        $response = $client->request('GET', 'https://api.securitytrails.com/v1/domain/' . $domain . '/subdomains', [
             'headers' => [
-                'APIKEY' => CommonUtilitary::API_KEY_SECURITY_TRAILS,
-                'accept' => 'application/json',
+              'APIKEY' => CommonUtilitary::API_KEY_SECURITY_TRAILS,
+              'accept' => 'application/json',
             ],
         ]);
-
 
         return $response()->json();
     }
