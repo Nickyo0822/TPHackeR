@@ -152,6 +152,6 @@ class FunctionHackerController extends Controller
             ],
         ]);
 
-        return $response()->json();
+        return $response()->getBody();
     }
 }
