@@ -140,11 +140,20 @@ class FunctionHackerController extends Controller
      */
     public function getAllDomains()
     {
+        if (!Auth::id())
+        {
+            CommonUtilitary::UserNotConnected("getAllDomains");
+
+            return response()->json(['erreur' => 'Utilisateur non authentifié'], 401);
+        }
+
+        CommonUtilitary::LogUsedFunction(Auth::id(), "getAllDomains");
+
         $client = new \GuzzleHttp\Client();
 
         $domain = request()->domain;
 
-        $response = $client->request('GET', 'https://api.securitytrails.com/v1/domain/' . $domain . '/subdomains', [
+        $response = $client->request('GET', CommonUtilitary::API_SECURITY_TRAILS . $domain . '/subdomains', [
             'headers' => [
               'APIKEY' => CommonUtilitary::API_KEY_SECURITY_TRAILS,
               'accept' => 'application/json',
