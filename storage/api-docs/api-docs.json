@@ -288,16 +288,42 @@
                                 }
                             }
                         }
-                    },
-                    "401": {
-                        "description": "L'email n'existe pas",
+                    }
+                }
+            }
+        },
+        "auth/common-password": {
+            "post": {
+                "tags": [
+                    "password"
+                ],
+                "summary": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+                "description": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+                "operationId": "51037de5df06146719c7f23779871557",
+                "parameters": [
+                    {
+                        "name": "bearerToken",
+                        "in": "query",
+                        "description": "Token de connexion de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "bearer",
+                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTg1Ljk4LjEzOC41Ni9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTczMDM4OTU1NSwiZXhwIjoxNzMwMzkzMTU1LCJuYmYiOjE3MzAzODk1NTUsImp0aSI6IjNUYmNnWHIxMjNDaGVpVkQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.do2Iv4GOl28ppLio4W3u1BF30_WoBA5E9nEae7ULwGQ"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Le mot de passe est utilisé",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "error": {
+                                        "string": {
                                             "type": "string",
-                                            "example": "L'email n'existe pas"
+                                            "format": "string",
+                                            "example": "test"
                                         }
                                     },
                                     "type": "object"
@@ -351,6 +377,10 @@
         {
             "name": "email",
             "description": "email"
+        },
+        {
+            "name": "password",
+            "description": "password"
         },
         {
             "name": "profiles",
