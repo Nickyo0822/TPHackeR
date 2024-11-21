@@ -83,3 +83,6 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
    ```
 3.
 
+### Fonctionnalités
+
+#### Vérificateur d'email

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\Models\ListMessagesError;
+use App\Models\CommonUtilitary;
 use App\Models\Logs;
 use App\Models\User;
 use Exception;
@@ -152,7 +152,7 @@ class AuthController extends Controller
         {
             Logs::create([
                 'usedFonction' => 'me',
-                'content' => ListMessagesError::USER_NOT_CONNECTED
+                'content' => CommonUtilitary::USER_NOT_CONNECTED
             ]);
 
             return response()->json(['erreur' => 'Utilisateur non authentifié'], 401);

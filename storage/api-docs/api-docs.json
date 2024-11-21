@@ -250,6 +250,64 @@
                 }
             }
         },
+        "/email/exist": {
+            "post": {
+                "tags": [
+                    "email"
+                ],
+                "summary": "Vérifie si l'email existe",
+                "description": "Vérifie si l'email existe",
+                "operationId": "ce87c112109acea5ce7ac720268faf98",
+                "parameters": [
+                    {
+                        "name": "bearerToken",
+                        "in": "query",
+                        "description": "Token de connexion de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "bearer",
+                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTg1Ljk4LjEzOC41Ni9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTczMDM4OTU1NSwiZXhwIjoxNzMwMzkzMTU1LCJuYmYiOjE3MzAzODk1NTUsImp0aSI6IjNUYmNnWHIxMjNDaGVpVkQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.do2Iv4GOl28ppLio4W3u1BF30_WoBA5E9nEae7ULwGQ"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "L'email est valide",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "email": {
+                                            "type": "string",
+                                            "format": "email",
+                                            "example": "test@example.com"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "L'email n'existe pas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "L'email n'existe pas"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/changeprofile": {
             "get": {
                 "tags": [
@@ -289,6 +347,10 @@
         {
             "name": "users",
             "description": "users"
+        },
+        {
+            "name": "email",
+            "description": "email"
         },
         {
             "name": "profiles",
