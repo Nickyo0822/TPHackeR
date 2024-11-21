@@ -10,7 +10,7 @@ Route::middleware('auth')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
+Route::group(['middleware' => 'api','prefix' => 'auth'], function () {
     // Login
     Route::post('login', [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout']);
