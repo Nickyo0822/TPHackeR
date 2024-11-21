@@ -13,7 +13,7 @@ class FunctionHackerController extends Controller
 {
     /**
      * @OA\Post(
-     *     path="/email/exist",
+     *     path="auth/email/exist",
      *     summary="Vérifie si l'email existe",
      *     description="Vérifie si l'email existe",
      *     tags={"email"},

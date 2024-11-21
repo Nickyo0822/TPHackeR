@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FunctionHackerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,4 +23,7 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
 
     // Utilisateur
     Route::post('me', [AuthController::class, 'me']);
+
+    // Email
+    Route::post('EmailVerificator', [FunctionHackerController::class, 'EmailVerificator']);
 });
