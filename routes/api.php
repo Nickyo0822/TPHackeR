@@ -26,4 +26,5 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
 
     // Email
     Route::post('email-exist', [FunctionHackerController::class, 'EmailVerificator']);
+    Route::post('common-password', [FunctionHackerController::class, 'getCommonPasswords']);
 });
