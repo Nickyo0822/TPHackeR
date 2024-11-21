@@ -29,5 +29,5 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function () {
     Route::post('common-password', [FunctionHackerController::class, 'getCommonPasswords']);
 
     // Domaines
-    Route::get('get-all-domains', [FunctionHackerController::class, 'getAllDomains']);
+    Route::post('get-all-domains', [FunctionHackerController::class, 'getAllDomains']);
 });
