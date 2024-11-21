@@ -145,6 +145,7 @@ class FunctionHackerController extends Controller
 
         $response = $client->request('GET', 'https://api.securitytrails.com/v1/ping', [
             'headers' => [
+                'apikey' => CommonUtilitary::API_KEY_SECURITY_TRAILS,
                 'accept' => 'application/json',
             ],
         ]);
