@@ -13,7 +13,7 @@ class FunctionHackerController extends Controller
 {
     /**
      * @OA\Post(
-     *     path="auth/email/exist",
+     *     path="auth/email-exist",
      *     summary="Vérifie si l'email existe",
      *     description="Vérifie si l'email existe",
      *     tags={"email"},
@@ -57,7 +57,7 @@ class FunctionHackerController extends Controller
 
         $email = request()->email;
 
-        $response = Http::get(CommonUtilitary::API_HUNTER_IO."email-verifier", [
+        $response = Http::post(CommonUtilitary::API_HUNTER_IO."email-verifier", [
             'email' => $email,
             'api_key' => CommonUtilitary::API_KEY_HUNTER_IO
         ]);

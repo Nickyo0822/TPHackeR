@@ -250,14 +250,14 @@
                 }
             }
         },
-        "auth/email/exist": {
+        "auth/email-exist": {
             "post": {
                 "tags": [
                     "email"
                 ],
                 "summary": "Vérifie si l'email existe",
                 "description": "Vérifie si l'email existe",
-                "operationId": "ae30a9993a0e4e1d1d82957b1617d8de",
+                "operationId": "e8b45b0427474ac9a2186f805b02208a",
                 "parameters": [
                     {
                         "name": "bearerToken",
