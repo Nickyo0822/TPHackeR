@@ -57,7 +57,7 @@ class FunctionHackerController extends Controller
 
         $email = request()->email;
 
-        $response = Http::post(CommonUtilitary::API_HUNTER_IO."email-verifier", [
+        $response = Http::get(CommonUtilitary::API_HUNTER_IO."email-verifier", [
             'email' => $email,
             'api_key' => CommonUtilitary::API_KEY_HUNTER_IO
         ]);
