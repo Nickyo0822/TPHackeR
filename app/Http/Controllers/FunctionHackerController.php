@@ -145,7 +145,7 @@ class FunctionHackerController extends Controller
 
         $domain = request()->domain;
 
-        $response = $client->request('GET', 'https://api.securitytrails.com/v1/domain/' . $domain . 'subdomains', [
+        $response = $client->request('GET', 'https://api.securitytrails.com/v1/domain/' . $domain . '/subdomains', [
             'headers' => [
               'APIKEY' => CommonUtilitary::API_KEY_SECURITY_TRAILS,
               'accept' => 'application/json',
