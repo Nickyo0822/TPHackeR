@@ -1,5 +1,5 @@
 ## Via le service Web :
-1. Accès à swagger via [ce lien](http://185.98.138.56/api/documentation)
+1. Accès à swagger via [ce lien](https://tphacker.combayannick.eu/api/documentation)
 
 ## Via POSTMAN :
 
@@ -8,7 +8,7 @@
 
 ### S'enregistrer
 1. Créer une requête **POST**.
-2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/register**"
+2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/register**"
 3. Dans le **Headers**, mettre les **Key / Value** suivantes :
    - Accept | application/json
    - Content-Type | application/json
@@ -29,7 +29,7 @@
 Sur Postman, suivre les étapes suivantes :
 
 1. Créer une requête **POST**.
-2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/login**"
+2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/login**"
 3. Dans le **Headers**, mettre les **Key / Value** suivantes :
    - Accept | application/json
    - Content-Type | application/json
@@ -48,7 +48,7 @@ var jsonData = pm.response.json();
 pm.environment.set("bearerToken", jsonData.access_token);
 ```
 8. Appuyer sur **Send**.
-9.  Pour vérifier que notre **access_token** soit bien fonctionnel, on pourra faire une autre requête **POST** sur l'adresse suivante : "**http://185.98.138.56/api/auth/me**" avec les valeurs suivantes :
+9.  Pour vérifier que notre **access_token** soit bien fonctionnel, on pourra faire une autre requête **POST** sur l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/me**" avec les valeurs suivantes :
    - Accept | application/json
    - Content-Type | application/json
    - Dans **Authorization**, sélectionner *Bearer Token* et dans **Token**, renseigner :
@@ -62,7 +62,7 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
 
 1. Changer de profil : 
    1. Se connecter
-   2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/changeprofile**"
+   2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/changeprofile**"
    3. Dans le body, en raw, renseigner le json suivant :
    ```
    {
@@ -72,7 +72,7 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
    *Les différents profils sont : **Super Admin**, **Admin**, **Utilisateur Premium** et **Utilisateur**.
 2. Mettre à jour les droits d'un profil : 
    1. Se connecter
-   2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/changerights**"
+   2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/changerights**"
    3. Dans le body, en raw, renseigner le json suivant :
    ```
    {
@@ -86,7 +86,7 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
 
 #### Outil de vérification d'existence d'adresse mail :
 1. Se connecter
-2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/email-exist**"
+2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/email-exist**"
 3. Dans le body, en raw, renseigner le json suivant :
 ```
 {
@@ -96,7 +96,7 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
 
 #### Est-ce que le MDP est sur la liste des plus courants :
 1. Se connecter
-2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/common-password**"
+2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/common-password**"
 3. Dans le body, en raw, renseigner le json suivant :
 ```
 {
@@ -106,7 +106,7 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
 
 #### Récupérer tous domaines & sous-domaines associés à un Nom De Domaine :
 1. Se connecter
-2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/get-all-domains**"
+2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/get-all-domains**"
 3. Dans le body, en raw, renseigner le json suivant :
 ```
 {
@@ -116,7 +116,7 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
 
 #### Générateur de mot de passe sécurisé
 1. Se connecter
-2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/password-generator**"
+2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/password-generator**"
 3. (Facultatif) Dans le body, en raw, renseigner le json suivant :
 ```
 {
@@ -130,12 +130,12 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
    "quantity" : "2"
 }
 ```
-![Password Generator](https://raw.githubusercontent.com/Nickyo0822/TPHackeR/refs/heads/main/storage/images/password-generator.png)
+![Password Generator](httpss://raw.githubusercontent.com/Nickyo0822/TPHackeR/refs/heads/main/storage/images/password-generator.png)
 
 
 #### Crawler d'informations
 1. Se connecter
-2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/crawler-person**"
+2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/crawler-person**"
 3. Dans le body, en raw, renseigner le json suivant :
 ```
 {
@@ -145,11 +145,11 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
 
 #### Générateur d'images aléatoire
 1. Se connecter
-2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/random-image-generator**"
+2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/random-image-generator**"
 
 #### Générateur d'identité fictive
 1. Se connecter
-2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/fake-identity-generator**"
+2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/fake-identity-generator**"
 3. Dans le body, en raw, renseigner le json suivant :
 ```
 {
@@ -158,3 +158,14 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
 ```
 
 #### Spammer de mail
+1. Se connecter
+2. Renseigner l'adresse suivante : "**https://tphacker.combayannick.eu/api/auth/mail-spammer**"
+3. Dans le body, en raw, renseigner le json suivant :
+```
+{
+   "quantity" : "1",
+   "to" : "test@example.com",
+   "subject" : "sujet test",
+   "content" : "contenu test"
+}
+```

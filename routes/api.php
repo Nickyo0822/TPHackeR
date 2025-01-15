@@ -36,6 +36,7 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function () {
 
     // That's illegal sir
     Route::post('crawler-person', [FunctionHackerController::class, 'crawlerPerson']);
+    Route::post('mail-spammer', [FunctionHackerController::class, 'mailSpammer']);
 
     // Générateur
     Route::post('random-image-generator', [FunctionHackerController::class, 'randomImageGenerator']);
