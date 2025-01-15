@@ -1,3 +1,18 @@
+## En local :
+1. Ouvrir un terminal et cloner le projet
+```
+git clone https://github.com/Nickyo0822/TPHackeR.git
+```
+2. Dans le terminal, installer les dépendances
+```
+composer install
+```
+3. Copier le .env envoyé sur Teams
+4. Dans le terminal, lancer le projet à l'aide de la commande suivante : (il faudra remplacer le "https://tphacker.combayannick.eu/" par "http://localhost:8000/" dans POSTMAN)
+```
+php artisan serve
+```
+
 ## Via le service Web :
 1. Accès à swagger via [ce lien](https://tphacker.combayannick.eu/api/documentation)
 
