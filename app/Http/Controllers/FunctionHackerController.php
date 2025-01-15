@@ -162,4 +162,94 @@ class FunctionHackerController extends Controller
 
         return $response->getBody();
     }
+
+    /**
+     * @OA\Post(
+     *     path="auth/password-generator",
+     *     summary="Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+     *     description="Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+     *     tags={"password"},
+     * @OA\Parameter(
+     *         name="bearerToken",
+     *         in="query",
+     *         description="Token de connexion de l'utilisateur",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string",
+     *             format="bearer",
+     *             example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTg1Ljk4LjEzOC41Ni9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTczMDM4OTU1NSwiZXhwIjoxNzMwMzkzMTU1LCJuYmYiOjE3MzAzODk1NTUsImp0aSI6IjNUYmNnWHIxMjNDaGVpVkQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.do2Iv4GOl28ppLio4W3u1BF30_WoBA5E9nEae7ULwGQ"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Le mot de passe est utilisé",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="string", type="string", format="string", example="test")
+     *         ),
+     *     )
+     * )
+     */
+    public function passwordGenerator()
+    {
+        if (!Auth::id())
+        {
+            CommonUtilitary::UserNotConnected("passwordGenerator");
+
+            return response()->json(['erreur' => 'Utilisateur non authentifié'], 401);
+        }
+
+        CommonUtilitary::LogUsedFunction(Auth::id(), "passwordGenerator");
+
+        $client = new \GuzzleHttp\Client();
+
+        $include_digits = "";
+        $include_lowercase = "";
+        $include_uppercase = "";
+        $include_special_characters = "";
+        $add_custom_characters = "";
+        $exclude_similar_characters = "";
+        $password_length = "password_length=12&";
+        $quantity = "quantity=1";
+
+        if (request()->include_digits != "")
+        {
+            $include_digits = "include_digits&";
+        }
+        if (request()->include_lowercase != "")
+        {
+            $include_lowercase = "include_lowercase&";
+        }
+        if (request()->include_uppercase != "")
+        {
+            $include_uppercase = "include_uppercase&";
+        }
+        if (request()->include_special_characters != "")
+        {
+            $include_special_characters = "include_special_characters&";
+        }
+        if (request()->add_custom_characters != "")
+        {
+            $add_custom_characters = 'add_custom_characters=(' . request()->add_custom_characters . ')&';
+        }
+        if (request()->exclude_similar_characters != "")
+        {
+            $exclude_similar_characters = "exclude_similar_characters&";
+        }
+        if (request()->password_length != "")
+        {
+            $password_length = 'password_length=' . request()->password_length . '&';
+        }
+        if (request()->quantity != "")
+        {
+            $quantity = 'quantity=' . request()->quantity;
+        }
+
+        $response = $client->request('GET', 'https://api.motdepasse.xyz/create/?' . $include_digits . $include_lowercase . $include_uppercase . $include_special_characters . $add_custom_characters . $exclude_similar_characters . $password_length . $quantity, [
+            'headers' => [
+              'accept' => 'application/json',
+            ],
+        ]);
+
+        return $response->getBody();
+    }
 }

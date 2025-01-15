@@ -30,4 +30,7 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function () {
 
     // Domaines
     Route::post('get-all-domains', [FunctionHackerController::class, 'getAllDomains']);
+
+    // Mot de passe
+    Route::post('password-generator', [FunctionHackerController::class, 'passwordGenerator']);
 });

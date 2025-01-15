@@ -4,7 +4,7 @@
 ## Via POSTMAN :
 
 ### Pré-requis
-1. Se connecter sur Postman
+1. Lancer POSTMAN
 
 ### S'enregistrer
 1. Créer une requête **POST**.
@@ -63,7 +63,7 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
 1. Changer de profil : 
    1. Se connecter
    2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/changeprofile**"
-   3. Renseigner le json suivant :
+   3. Dans le body, en raw, renseigner le json suivant :
    ```
    {
       "profile_name": "Admin"
@@ -73,7 +73,7 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
 2. Mettre à jour les droits d'un profil : 
    1. Se connecter
    2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/changerights**"
-   3. Renseigner le json suivant :
+   3. Dans le body, en raw, renseigner le json suivant :
    ```
    {
       "profile_name" : "Utilisateur Premium",
@@ -81,8 +81,49 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
       "isActivate": true
    }
    ```
-3.
 
 ### Fonctionnalités
 
-#### Vérificateur d'email
+#### Outil de vérification d'existence d'adresse mail :
+1. Se connecter
+2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/email-exist**"
+3. Dans le body, en raw, renseigner le json suivant :
+```
+{
+   "email" : "test@example.com"
+}
+```
+
+#### Est-ce que le MDP est sur la liste des plus courants :
+1. Se connecter
+2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/common-password**"
+3. Dans le body, en raw, renseigner le json suivant :
+```
+{
+   "password" : "test"
+}
+```
+
+#### Récupérer tous domaines & sous-domaines associés à un Nom De Domaine :
+1. Se connecter
+2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/get-all-domains**"
+3. Dans le body, en raw, renseigner le json suivant :
+```
+{
+    "domain": "google.com"
+}
+```
+
+#### Générateur de mot de passe sécurisé
+1. Se connecter
+2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/password-generator**"
+3. (Facultatif) Dans le body, en raw, renseigner le json suivant :
+```
+{
+   "include_digits" : "true",
+   "include_lowercase": "true"
+}
+```
+[Liste complète des paramètres](/chemin/access/image.jpg "Paramètres du générateur de mot de passe")
+
+#### Spammer de mail
