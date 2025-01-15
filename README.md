@@ -124,6 +124,6 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
    "include_lowercase": "true"
 }
 ```
-[Liste complète des paramètres](/chemin/access/image.jpg "Paramètres du générateur de mot de passe")
+![Password Generator](https://raw.githubusercontent.com/Nickyo0822/TPHackeR/refs/heads/main/storage/images/password-generator.png)
 
 #### Spammer de mail
