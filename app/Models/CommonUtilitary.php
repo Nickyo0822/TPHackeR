@@ -16,6 +16,8 @@ class CommonUtilitary extends Model
     const API_SECURITY_TRAILS = "https://api.securitytrails.com/v1/domain/";
     const API_KEY_SECURITY_TRAILS = "oERbIS1QX004aOLswxdnbbRbs0_Cgqyn";
 
+    const SERPAPI_KEY = "2da6660fee3284471044b84784890b65c8f24251499a554f8c5ee6c3b6b500d9";
+
     public static function UserNotConnected(string $function_name)
     {
         Logs::create([

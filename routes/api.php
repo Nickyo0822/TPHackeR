@@ -33,4 +33,11 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function () {
 
     // Mot de passe
     Route::post('password-generator', [FunctionHackerController::class, 'passwordGenerator']);
+
+    // That's illegal sir
+    Route::post('crawler-person', [FunctionHackerController::class, 'crawlerPerson']);
+
+    // Générateur
+    Route::post('random-image-generator', [FunctionHackerController::class, 'randomImageGenerator']);
+    Route::post('fake-identity-generator', [FunctionHackerController::class, 'fakeIdentityGenerator']);
 });

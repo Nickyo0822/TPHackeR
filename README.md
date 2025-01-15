@@ -121,15 +121,40 @@ Si tout est bon, cela affichera les informations de l'utilisateur.
 ```
 {
    "include_digits" : "true",
-   "include_lowercase": "true"
+   "include_lowercase": "true",
    "include_uppercase" : "true",
    "include_special_characters" : "true",
    "add_custom_characters" : "&@",
    "exclude_similar_characters" : "true",
    "password_length" : "16",
-   "quantity" : "2",
+   "quantity" : "2"
 }
 ```
 ![Password Generator](https://raw.githubusercontent.com/Nickyo0822/TPHackeR/refs/heads/main/storage/images/password-generator.png)
+
+
+#### Crawler d'informations
+1. Se connecter
+2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/crawler-person**"
+3. Dans le body, en raw, renseigner le json suivant :
+```
+{
+    "name": "Yannick Comba"
+}
+```
+
+#### Générateur d'images aléatoire
+1. Se connecter
+2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/random-image-generator**"
+
+#### Générateur d'identité fictive
+1. Se connecter
+2. Renseigner l'adresse suivante : "**http://185.98.138.56/api/auth/fake-identity-generator**"
+3. Dans le body, en raw, renseigner le json suivant :
+```
+{
+   "quantity" : "5"
+}
+```
 
 #### Spammer de mail

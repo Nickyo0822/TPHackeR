@@ -337,11 +337,179 @@
         "auth/get-all-domains": {
             "post": {
                 "tags": [
-                    "password"
+                    "domains"
                 ],
                 "summary": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
                 "description": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
                 "operationId": "e96e66c2f75e8ea23d1c7009fd0850f9",
+                "parameters": [
+                    {
+                        "name": "bearerToken",
+                        "in": "query",
+                        "description": "Token de connexion de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "bearer",
+                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTg1Ljk4LjEzOC41Ni9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTczMDM4OTU1NSwiZXhwIjoxNzMwMzkzMTU1LCJuYmYiOjE3MzAzODk1NTUsImp0aSI6IjNUYmNnWHIxMjNDaGVpVkQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.do2Iv4GOl28ppLio4W3u1BF30_WoBA5E9nEae7ULwGQ"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Le mot de passe est utilisé",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "string": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": "test"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "auth/password-generator": {
+            "post": {
+                "tags": [
+                    "password"
+                ],
+                "summary": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+                "description": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+                "operationId": "43e60891d04156f69227b060230b4619",
+                "parameters": [
+                    {
+                        "name": "bearerToken",
+                        "in": "query",
+                        "description": "Token de connexion de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "bearer",
+                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTg1Ljk4LjEzOC41Ni9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTczMDM4OTU1NSwiZXhwIjoxNzMwMzkzMTU1LCJuYmYiOjE3MzAzODk1NTUsImp0aSI6IjNUYmNnWHIxMjNDaGVpVkQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.do2Iv4GOl28ppLio4W3u1BF30_WoBA5E9nEae7ULwGQ"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Le mot de passe est utilisé",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "string": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": "test"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "auth/crawler-person": {
+            "post": {
+                "tags": [
+                    "that's illegal sir"
+                ],
+                "summary": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+                "description": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+                "operationId": "b4711cdedd920f5427a0bc0a11b5eb8b",
+                "parameters": [
+                    {
+                        "name": "bearerToken",
+                        "in": "query",
+                        "description": "Token de connexion de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "bearer",
+                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTg1Ljk4LjEzOC41Ni9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTczMDM4OTU1NSwiZXhwIjoxNzMwMzkzMTU1LCJuYmYiOjE3MzAzODk1NTUsImp0aSI6IjNUYmNnWHIxMjNDaGVpVkQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.do2Iv4GOl28ppLio4W3u1BF30_WoBA5E9nEae7ULwGQ"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Le mot de passe est utilisé",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "string": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": "test"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "auth/random-image-generator": {
+            "post": {
+                "tags": [
+                    "generator"
+                ],
+                "summary": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+                "description": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+                "operationId": "09b24be21bcba947171084244a2fb103",
+                "parameters": [
+                    {
+                        "name": "bearerToken",
+                        "in": "query",
+                        "description": "Token de connexion de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "bearer",
+                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTg1Ljk4LjEzOC41Ni9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTczMDM4OTU1NSwiZXhwIjoxNzMwMzkzMTU1LCJuYmYiOjE3MzAzODk1NTUsImp0aSI6IjNUYmNnWHIxMjNDaGVpVkQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.do2Iv4GOl28ppLio4W3u1BF30_WoBA5E9nEae7ULwGQ"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Le mot de passe est utilisé",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "string": {
+                                            "type": "string",
+                                            "format": "string",
+                                            "example": "test"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "auth/fake-identity-generator": {
+            "post": {
+                "tags": [
+                    "generator"
+                ],
+                "summary": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+                "description": "Vérifie si le mot de passe fait partie des mots de passe les plus fréquents",
+                "operationId": "bbe5c52b9b03ee765a20121f9faa04ad",
                 "parameters": [
                     {
                         "name": "bearerToken",
@@ -423,6 +591,18 @@
         {
             "name": "password",
             "description": "password"
+        },
+        {
+            "name": "domains",
+            "description": "domains"
+        },
+        {
+            "name": "that's illegal sir",
+            "description": "that's illegal sir"
+        },
+        {
+            "name": "generator",
+            "description": "generator"
         },
         {
             "name": "profiles",
